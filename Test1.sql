@@ -94,3 +94,49 @@ select  distinct Author_id from Viewss
 where Author_id=ViewErId  order by Author_id;
 
 /*Done we got it */
+
+
+/* Create table  'Product' & Insert Values into table */
+create table Product(P_Id varchar(50),
+Product_name varchar(50),
+Manufacture varchar(50),
+Price int );
+
+insert into Product values
+('P001' ,'Moisturiser' ,'XYZ' ,100),
+('P002' ,'Sanitizer' ,'LAC', 50),
+('P003' ,'Bath - Soap' ,'COP' ,150),
+('P004', 'Shampoo', 'TAP', 200),
+('P005', 'Lens Solution', 'COP' ,150);
+ 
+ /*Select Table content*/
+ select * from Product;
+ 
+ /* Question 2. Write a query to calculate avg of product price  Having price between 100 and 20.Aggregate */
+ select  avg(Price) from Product where Price between 20 and 100;
+ 
+/*Done we get it*/
+
+/*Question 3. Write a query to calculate sum of product price from product table.*/ 
+select sum(Price) from Product;
+
+/*Question 4. Write a query to double product price from product ,table where productname = Lens Solution.*/
+/* Iska matlab we need to update the row of lense solution--> price double from current.*/
+set SQL_SAFE_UPDATES=0;
+update Product
+set price=price*2
+where Product_name='Lens Solution';
+SET SQL_SAFE_UPDATES=1;
+ 
+ /* Question 4. Write a query to decrease product price from product  table where productname =  or Bath soap. */
+ /* We have to again upadte the Row-Which matches the condition is  decreasing 1.0 */
+ update Product
+ set price=price-(price * 0.1)
+ where Product_name IN ('sanitizer','Bath soap');
+ 
+ 
+ 
+
+ 
+ 
+
