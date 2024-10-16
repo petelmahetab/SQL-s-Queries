@@ -140,3 +140,34 @@ SET SQL_SAFE_UPDATES=1;
  
  
 
+ /*Question 5. Create two table such as ‘Mother’ and ‘Baby’ */
+
+create table Mother (
+M_id int primary key,
+M_name varchar(50) not null
+);
+create table Baby (
+B_id int primary key,
+B_name varchar(50) not null,
+M_id int, 
+FOREIGN KEY (M_id) references Mother(M_id) 
+);
+
+show tables;
+ 
+ /*Insert some Records */
+ INSERT INTO Mother
+VALUES
+(1, 'Kajol'),
+(2, 'Madhuri'),
+(3, 'Alia');
+
+insert into Baby
+values (01, '‘Nysa’', 01),
+(02 ,'‘Yug’', 01),
+(03,'‘raha’',03),
+(04 ,'‘Aryn’',02),
+(05,'‘Ryan’',02);
+
+select * from Mother;
+select * from Baby;
