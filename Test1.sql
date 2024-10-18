@@ -135,11 +135,6 @@ SET SQL_SAFE_UPDATES=1;
  where Product_name IN ('sanitizer','Bath soap');
  
  
- 
-
- 
- 
-
  /*Question 5. Create two table such as ‘Mother’ and ‘Baby’ */
 
 create table Mother (
@@ -171,3 +166,37 @@ values (01, '‘Nysa’', 01),
 
 select * from Mother;
 select * from Baby;
+
+/*14. Write a Query to create view on table ‘mother’ as  ‘mother_view’ copy all the data from mother table. */
+
+create view Mother_view as select * from Mother;
+# Here we done copied all data into Mother table..
+select * from Mother_view;
+
+/*15. Write a Query to create a View on Product table as Product_views’ just copy tow column from product table 
+such price and product nam*/
+show tables;
+create view Product_view as select Product_name,Price from Product;
+# done 
+select * from Product_view;
+
+
+/*16. Write a Query to fetch record from table ‘Product’ Product name start with ‘s’. */
+select* from Product;
+
+select * from Product where Product_name like 's%';
+/*Done */
+
+/*17.Write a Query to fetch record from table ‘Product’ Product name ends with ‘r’. */
+select * from Product where Product_name like '%r';
+/*Done */
+
+/*18.Write a Query to fetch record from table ‘Product’ Product name start ‘s’ and ends with ’o ' */
+select * from Product where Product_name  like 's%o';
+
+/*19.Display All record from table Product.  Display all record from table ‘Mother ’ and ‘Baby */
+select * from Product;
+select * from Mother;
+select * from Baby;
+
+/*                      Test Question paper will be Solved.....!                                   */
