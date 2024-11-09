@@ -42,3 +42,33 @@ select * from Company;
 select Billionaire.BillionaireName,Company.CompanyName
 from Billionaire 
 INNER join Company on Billionaire.CompanyID=Company.CompanyID;
+
+
+/*2.List all billionaires, including those who are not associated with any company. Show the company name where available.(Left Join from Billionaire table */
+select b.BillionaireName,c.CompanyName
+from Billionaire b
+left join Company c on  b.CompanyID=c.CompanyID;
+
+/*3.Retrieve all companies and list any associated billionaires. Include companies with no billionaire associated.(Right Join )*/
+select BillionaireName,CompanyName
+from Billionaire
+right join Company on Billionaire.CompanyID=Company.CompanyID;
+
+/*4.List all billionaires and companies, showing NULL where there's no association.(FULL OUTER JOIN) */
+
+ /* SELECT b.BillionaireName, c.CompanyName
+ FROM Billionaire b
+ OUTER JOIN Company c ON b.CompanyID = c.CompanyID; */
+/* We get an error outer join beacause we can't able to use an OUTER JOIN directly. Instead we have to use LEFT or RIGHT JOIN .
+MYSQL DIDN't support an FULL OUTER JOIN
+For solving this question we need to add  LEFT and RIGHT with union*/
+
+SELECT b.BillionaireName, c.CompanyName
+ FROM Billionaire b
+ left JOIN Company c ON b.CompanyID = c.CompanyID
+ UNION
+ SELECT b.BillionaireName, c.CompanyName
+ FROM Billionaire b
+ Right JOIN Company c ON b.CompanyID = c.CompanyID;
+
+
